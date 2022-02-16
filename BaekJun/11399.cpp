@@ -34,5 +34,6 @@ int main()
 		sum += temp;
 		temp = 0;
 	}
+
 	cout << sum;
 }
