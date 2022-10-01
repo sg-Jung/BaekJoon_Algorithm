@@ -16,10 +16,9 @@ int main()
 			num %= n;
 			if (num == 0)
 			{
-				cout << i << " i\n";
+				cout << i << "\n";
 				break;
 			}
-			cout << num << "\n";
 		}
 	}
 
