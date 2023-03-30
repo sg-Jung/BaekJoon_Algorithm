@@ -18,31 +18,31 @@ void merges(int left, int right)
 
 	while (i <= mid && j <= right)
 	{
-		if (arr[i] > arr[j])
+		if (arr[i] < arr[j])
 		{
-			result[k++] = arr[j++];
+			result[k++] = arr[i++];
 		}
 		// 양쪽 리스트에서 최솟값을 비교했는데 오른쪽 리스트가 더 컸을 경우
 		// 그대로 왼쪽 리스트의 최솟값이 결과배열에 내려오면 된다.
 		else
 		{
-			result[k++] = arr[i++];
+			result[k++] = arr[j++];
 		}
 	}
 
 	// 오른쪽 리스트에 아직 결과배열에 들어가지 못한 값이 있으면 그대로 넣어준다.
-	if (i > mid)
-	{
-		while (j <= right)
-		{
-			result[k++] = arr[j++];
-		}
-	}
-	else // 남은 값들을 차례로 마저 넣어주는 과정
+	if (i <= mid)
 	{
 		while (i <= mid)
 		{
 			result[k++] = arr[i++];
+		}
+	}
+	else // 남은 값들을 차례로 마저 넣어주는 과정
+	{
+		while (j <= right)
+		{
+			result[k++] = arr[j++];
 		}
 	}
 
@@ -70,7 +70,7 @@ void partition(int left, int right)
 
 int main()
 {
-	arr = { 3, 5, 4, 2, 1, 8, 7, 10, 9, 15, 12, 11, 13, 14 };
+	arr = { 3, 5, 4, 2, 1, 8, 7, 10, 9, 15, 12, 11, 13, 14};
 
 	int n = arr.size();
 	
