@@ -9,6 +9,16 @@ using namespace std;
 vector<int> arr = vector<int>(N);
 vector<int> result = vector<int>(N);
 
+void PrintList()
+{
+	for (int i = 0; i < arr.size(); i++)
+	{
+		cout << arr[i] << " ";
+	}
+
+	cout << "\n\n";
+}
+
 void merges(int left, int right)
 {
 	int mid = (left + right) / 2;
@@ -51,6 +61,9 @@ void merges(int left, int right)
 	{
 		arr[i] = result[i];
 	}
+
+	PrintList();
+
 }
 
 void partition(int left, int right)
@@ -70,16 +83,14 @@ void partition(int left, int right)
 
 int main()
 {
-	arr = { 3, 5, 4, 2, 1, 8, 7, 10, 9, 15, 12, 11, 13, 14};
+	arr = { 3, 5, 4, 2, 1, 8, 7, 10, 9, 15, 12, 6, 11, 13, 14};
 
 	int n = arr.size();
 	
 	partition(0, n - 1);
 
 	// 정렬된 값 출력
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << " ";
-	}
+	PrintList();
+
 	return 0;
 }
