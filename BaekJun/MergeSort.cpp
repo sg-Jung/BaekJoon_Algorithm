@@ -62,8 +62,8 @@ void merges(int left, int right)
 		arr[i] = result[i];
 	}
 
+	cout << "merges(left: " << left << ", right: " << right << "): ";
 	PrintList();
-
 }
 
 void partition(int left, int right)
@@ -86,10 +86,15 @@ int main()
 	arr = { 3, 5, 4, 2, 1, 8, 7, 10, 9, 15, 12, 6, 11, 13, 14};
 
 	int n = arr.size();
+
+	cout << "정렬 전: ";
+	PrintList();
+	cout << "\n\n";
 	
 	partition(0, n - 1);
 
 	// 정렬된 값 출력
+	cout << "\n\n정렬 후: ";
 	PrintList();
 
 	return 0;
