@@ -6,16 +6,18 @@ using namespace std;
 
 const int MAX = 10000;
 
-int parent[MAX];
-int s[MAX];
+int parent[MAX]; // 각 노드의 부모 노드를 저장하는 배열
+int sizes[MAX]; // 집합의 크기를 저장하는 배열
 
 // 초기화 함수
 void init()
 {
+    // 초기 parent 배열은 각 노드가 자기 자신을 부모로 갖음
+    // size는 전부 1로 초기화
     for (int i = 0; i < MAX; i++)
     {
         parent[i] = i;
-        s[i] = 1;
+        sizes[i] = 1;
     }
 }
 
@@ -35,25 +37,23 @@ int collapsing_find(int u)
     return root;
 }
 
-// 두 집합을 합치는 함수 (작은 집합을 큰 집합에 붙이기)
+// 두 집합을 합치는 함수 (가중치가 작은 집합을 큰 집합에 붙인다)
 void weighted_union(int u, int v)
 {
     int root1 = collapsing_find(u);
     int root2 = collapsing_find(v);
 
-    if (root1 == root2)
-    {
-        return;
-    }
-    if (s[root1] < s[root2])
+    if (root1 == root2) return;
+        
+    if (sizes[root1] < sizes[root2])
     {
         parent[root1] = root2;
-        s[root2] += s[root1];
+        sizes[root2] += sizes[root1];
     }
     else
     {
         parent[root2] = root1;
-        s[root1] += s[root2];
+        sizes[root1] += sizes[root2];
     }
 }
 
@@ -67,6 +67,7 @@ bool cmp(pair<int, pair<int, int>> a, pair<int, pair<int, int>> b)
 vector<pair<int, pair<int, int>>> kruskal(vector<pair<int, pair<int, int>>> edges, int n)
 {
     vector<pair<int, pair<int, int>>> mst;  // 최소 신장 트리
+
     sort(edges.begin(), edges.end(), cmp); // 간선들을 비용순으로 정렬
 
     for (int i = 0; i < edges.size(); i++)
@@ -100,7 +101,7 @@ int main()
     int n, m;
     cin >> n >> m;
 
-    vector<pair<int, pair<int, int>>> edges(m); // 간선들을 저장할 벡터 (가중치, (끝 점, 끝 점))
+    vector<pair<int, pair<int, int>>> edges(m); // 간선들을 저장할 벡터 (가중치, (정점, 정점))
 
     for (int i = 0; i < m; i++)
     {
@@ -120,6 +121,7 @@ int main()
    
     cout << "***최소 신장 트리 출력***\n";
     cout << "(정점, 정점): 가중치\n\n";
+
     // 최소 신장 트리의 간선 정보 출력
     for (int i = 0; i < mst.size(); i++)
     {
