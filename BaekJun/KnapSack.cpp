@@ -14,8 +14,8 @@ void printList(vector<vector<int>>& D, int C, int n)
 		}
 		cout << '\n';
 	}
-	cout << "\n\n";
 
+	cout << "\n\n";
 }
 
 int knapsack(int C, int n, vector<int>& weight, vector<int>& value)
