@@ -25,6 +25,9 @@ int knapsack(int C, int n, vector<int>& weight, vector<int>& value)
 	for (int i = 0; i <= n; i++) D[i][0] = 0;
 	for (int w = 0; w <= C; w++) D[0][w] = 0;
 
+	cout << "초기 배열" << '\n';
+	printList(D, C, n);
+
 	for (int i = 1; i <= n; i++)
 	{
 		for (int w = 1; w <= C; w++)
