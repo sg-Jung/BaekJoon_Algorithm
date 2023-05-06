@@ -15,6 +15,7 @@ void printList(vector<vector<int>>& D, int C, int n)
 		cout << '\n';
 	}
 	cout << "\n\n";
+
 }
 
 int knapsack(int C, int n, vector<int>& weight, vector<int>& value)
@@ -45,10 +46,10 @@ int main()
 {
 	int C = 10; // 배낭의 용량
 	int n = 4; // 물건의 개수
-	vector<int> w = {5, 4, 6, 3}; // 무게
-	vector<int> v = {10, 40, 30, 50 }; // 가치
+	vector<int> weight = {5, 4, 6, 3}; // 무게
+	vector<int> value = {10, 40, 30, 50 }; // 가치
 
-	int result = knapsack(C, n, w, v);
+	int result = knapsack(C, n, weight, value);
 
 	cout << "result: " << result << '\n';
 
