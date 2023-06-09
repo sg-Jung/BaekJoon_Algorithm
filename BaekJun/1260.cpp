@@ -2,6 +2,7 @@
 #include <vector>
 #include <queue>
 #include <stack>
+#include <algorithm>
 
 using namespace std;
 
@@ -59,9 +60,9 @@ void BFS(int V)
 		visited[cur] = true;
 		cout << cur << " ";
 
-		for (int i = 0; i < graph[V].size(); i++)
+		for (int i = 0; i < graph[cur].size(); i++)
 		{
-			int next = graph[V][i];
+			int next = graph[cur][i];
 			qu.push(next);
 		}
 	}
@@ -70,7 +71,6 @@ void BFS(int V)
 int main()
 {
 	int N, M, V;
-
 	cin >> N >> M >> V;
 
 	int v1, v2;
@@ -79,9 +79,13 @@ int main()
 	{
 		cin >> v1 >> v2;
 		graph[v1].push_back(v2);
+		graph[v2].push_back(v1);
 	}
 
-	DFS(V);
+	for(int i = 1; i <= N; i++)
+		sort(graph[i].begin(), graph[i].end());
+
+	DFS2(V);
 	
 	cout << "\n";
 	fill_n(visited, 1001, false);
