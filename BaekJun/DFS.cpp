@@ -29,14 +29,12 @@ void dfs(int v) // v: 노드
 void dfs2(int v)
 {
 	st.push(v); // 루트 노드 삽입
+	visited[v] = true;
 
 	while (!st.empty())
 	{
 		int cur = st.top();
 		st.pop();
-
-		if (visited[cur]) continue; // 이미 방문한 노드라면 통과
-		visited[cur] = true;
 
 		cout << cur << "\n";
 
@@ -44,14 +42,22 @@ void dfs2(int v)
 		for (int i = graph[cur].size() - 1; i >= 0; i--)
 		{
 			int next = graph[cur][i];
-			st.push(next);
+			if(visited[next] == false)
+			{
+				st.push(next);
+				visited[next] = true;
+			}
 		}
 
 		//// 숫자가 큰 노드 먼저 방문
 		//for (int i = 0; i < graph[cur].size(); i++)
 		//{
 		//	int next = graph[cur][i];
-		//	st.push(next);
+		//	if(visited[next] == false)
+		//	{
+		//		st.push(next);
+		//		visited[next] = true;
+		//	}
 		//}
 	}
 }
