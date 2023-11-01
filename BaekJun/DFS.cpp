@@ -4,51 +4,50 @@
 
 using namespace std;
 
-int N, M, S; // N: ³ëµå ¼ö, M: °£¼± ¼ö, S: ½ÃÀÛ ³ëµå
+int N, M, S; // N: ë…¸ë“œ ìˆ˜, M: ê°„ì„  ìˆ˜, S: ì‹œì‘ ë…¸ë“œ
 
 vector<int> graph[1001];
 bool visited[1001] = { false, };
 stack<int> st;
 
-/* Àç±Í ÇÔ¼ö¸¦ ÀÌ¿ëÇÑ dfs*/
-void dfs(int v) // v: ³ëµå
+/* ì¬ê·€ í•¨ìˆ˜ë¥¼ ì´ìš©í•œ dfs*/
+void dfs(int v) // v: ë…¸ë“œ
 {
-	if (visited[v]) return; // ÀÌ¹Ì ¹æ¹®Çß´Ù¸é Á¾·á
-
 	visited[v] = true;
 	cout << v << "\n";
 
-	// ÀÎÁ¢ ³ëµå Àç±ÍÀûÀ¸·Î È£Ãâ
+	// ì¸ì ‘ ë…¸ë“œ ì¬ê·€ì ìœ¼ë¡œ í˜¸ì¶œ
 	for (int i = 0; i < graph[v].size(); i++)
 	{
 		int next = graph[v][i];
-		dfs(next);
+		if (!visited[next]);
+			dfs(next);
 	}
 }
 
-/* StackÀ» ÀÌ¿ëÇÑ dfs*/
+/* Stackì„ ì´ìš©í•œ dfs*/
 void dfs2(int v)
 {
-	st.push(v); // ·çÆ® ³ëµå »ğÀÔ
+	st.push(v); // ë£¨íŠ¸ ë…¸ë“œ ì‚½ì…
 
 	while (!st.empty())
 	{
 		int cur = st.top();
 		st.pop();
 
-		if (visited[cur]) continue; // ÀÌ¹Ì ¹æ¹®ÇÑ ³ëµå¶ó¸é Åë°ú
+		if (visited[cur]) continue; // ì´ë¯¸ ë°©ë¬¸í•œ ë…¸ë“œë¼ë©´ í†µê³¼
 		visited[cur] = true;
 
 		cout << cur << "\n";
 
-		// ¼ıÀÚ°¡ ÀÛÀº ³ëµå ¸ÕÀú ¹æ¹®ÇÏ±â À§ÇØ reverse
+		// ìˆ«ìê°€ ì‘ì€ ë…¸ë“œ ë¨¼ì € ë°©ë¬¸í•˜ê¸° ìœ„í•´ reverse
 		for (int i = graph[cur].size() - 1; i >= 0; i--)
 		{
 			int next = graph[cur][i];
 			st.push(next);
 		}
 
-		//// ¼ıÀÚ°¡ Å« ³ëµå ¸ÕÀú ¹æ¹®
+		//// ìˆ«ìê°€ í° ë…¸ë“œ ë¨¼ì € ë°©ë¬¸
 		//for (int i = 0; i < graph[cur].size(); i++)
 		//{
 		//	int next = graph[cur][i];
@@ -87,7 +86,7 @@ int main()
 	
 	dfs(1);
 
-	fill_n(visited, 1001, false); // ¹æ¹® ¿©ºÎ ÃÊ±âÈ­
+	fill_n(visited, 1001, false); // ë°©ë¬¸ ì—¬ë¶€ ì´ˆê¸°í™”
 	cout << "\n\n";
 
 	dfs2(1);
