@@ -65,7 +65,6 @@ void generateCombinations(vector<int>& nums, int r, vector<bool>& used, vector<i
             combination.pop_back();
             used[i] = false;
         }
-
     }
 }
 
