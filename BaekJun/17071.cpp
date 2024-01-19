@@ -21,10 +21,7 @@ void bfs()
 		int y = k + time * (time + 1) / 2; //  {k + (1 + 2 + 3 ...)}
 		q.pop();
 
-		printf("x: %d, y: %d, time: %d\n", x, y, time);
-
-		if (visited[y][time % 2])
-		{
+		if (visited[y][time % 2])		{
 			cout << time << '\n';
 			return;
 		}
