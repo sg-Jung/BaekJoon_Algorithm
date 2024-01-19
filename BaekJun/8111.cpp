@@ -14,6 +14,7 @@ void bfs(int n)
 	queue<pair<int, string>> q;
 
 	q.push(make_pair(1, "1"));
+	visited[1] = true;
 
 	while (!q.empty())
 	{
