@@ -11,7 +11,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="순열_조합.cpp">
+<<<<<<< HEAD
+    <ClCompile Include="samsungArrayTurn.cpp">
+=======
+    <ClCompile Include="17071.cpp">
+>>>>>>> 649a5d19efdde79f05e07ead685e16d460e388a4
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

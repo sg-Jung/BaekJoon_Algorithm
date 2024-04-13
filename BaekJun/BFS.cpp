@@ -10,23 +10,25 @@ queue<int> que;
 
 void bfs(int v)
 {
-	que.push(v); // ·çÆ® ³ëµå »ðÀÔ
+	que.push(v); // ë£¨íŠ¸ ë…¸ë“œ ì‚½ìž…
+	visited[v] = true;
 
 	while (!que.empty())
 	{
 		int cur = que.front();
 		que.pop();
 
-		if (visited[cur]) continue;
-		visited[cur] = true;
-
 		cout << cur << "\n";
 
-		// ÀÎÁ¢ ³ëµåµé »ðÀÔ
+		// ì¸ì ‘ ë…¸ë“œë“¤ ì‚½ìž…
 		for (int i = 0; i < graph[cur].size(); i++)
 		{
 			int next = graph[cur][i];
-			que.push(next);
+			if(visited[next] == false)
+			{
+				que.push(next);
+				visited[next] = true;
+			}
 		}
 	}
 }

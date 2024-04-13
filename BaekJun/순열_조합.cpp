@@ -65,7 +65,6 @@ void generateCombinations(vector<int>& nums, int r, vector<bool>& used, vector<i
             combination.pop_back();
             used[i] = false;
         }
-
     }
 }
 
@@ -115,8 +114,8 @@ void generateCombinations(vector<int>& nums, int r, vector<int>& combination, in
 
 int main()
 {
-    vector<int> nums = { 1, 2, 3, 4 };
-    int r = 4;
+    vector<int> nums = { 1, 2, 3};
+    int r = 2;
 
     vector<int> permutation, combination;
     vector<bool> usedPer(nums.size(), false), usedComb(nums.size(), false);
