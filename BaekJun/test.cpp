@@ -1,29 +1,4 @@
 #include <iostream>
-<<<<<<< HEAD
-#include <string>
-
-using namespace std;
-
-int main()
-{
-	// 단순 string 비교는 사전식으로 비교
-	string s1 = "9";
-	string s2 = "39";
-	
-	bool sl = s1 > s2;
-
-	// 정수로 변환 시 값 크기로 비교
-	int num1 = stoi(s1);
-	int num2 = stoi(s2);
-
-	bool nl = num1 > num2;
-
-	cout << sl << endl;
-	cout << nl << endl;
-
-	return 0;
-}
-=======
 #include <vector>
 
 using namespace std;
@@ -131,4 +106,3 @@ int main()
 
 	return 0;
 }
->>>>>>> 649a5d19efdde79f05e07ead685e16d460e388a4
