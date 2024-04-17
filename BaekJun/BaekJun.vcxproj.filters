@@ -11,7 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="13460(samsung).cpp">
+    <ClCompile Include="14502.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
